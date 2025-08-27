@@ -1,0 +1,10 @@
+{
+  "dataset": "fpb",
+  "tuned_on": "train split (80%)",
+  "t_neg": -0.32999999999999985,
+  "t_pos": 4.440892098500626e-16,
+  "train_best_macro_f1": 0.48122609010362094,
+  "holdout_accuracy": 0.6644591611479028,
+  "holdout_macro_f1": 0.509787378638691,
+  "n_test": 453
+}

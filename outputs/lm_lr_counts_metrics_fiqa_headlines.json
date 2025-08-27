@@ -1,0 +1,10 @@
+{
+  "dataset": "fiqa_headlines",
+  "cv_acc_mean": 0.5021518987341771,
+  "cv_acc_std": 0.06724684288905394,
+  "cv_f1_mean": 0.4347741476153427,
+  "cv_f1_std": 0.03572541358993739,
+  "holdout_accuracy": 0.45,
+  "holdout_macro_f1": 0.43411489374073325,
+  "n_test": 100
+}

@@ -1,0 +1,13 @@
+{
+  "dataset": "fiqa_headlines",
+  "model": "ProsusAI/finbert",
+  "mode": "inference",
+  "n": 498,
+  "accuracy": 0.5682730923694779,
+  "macro_f1": 0.54047346091389,
+  "counts": {
+    "neg": 158,
+    "neu": 33,
+    "pos": 307
+  }
+}

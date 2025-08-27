@@ -1,0 +1,13 @@
+{
+  "dataset": "fpb",
+  "model": "ProsusAI/finbert",
+  "mode": "inference",
+  "n": 2264,
+  "accuracy": 0.9717314487632509,
+  "macro_f1": 0.962503461452302,
+  "counts": {
+    "neg": 303,
+    "neu": 1391,
+    "pos": 570
+  }
+}

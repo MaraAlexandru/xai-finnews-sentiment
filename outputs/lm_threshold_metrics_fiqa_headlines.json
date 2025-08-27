@@ -1,0 +1,10 @@
+{
+  "dataset": "fiqa_headlines",
+  "tuned_on": "train split (80%)",
+  "t_neg": -0.5,
+  "t_pos": -0.48,
+  "train_best_macro_f1": 0.4881142825068059,
+  "holdout_accuracy": 0.8,
+  "holdout_macro_f1": 0.5350073237078887,
+  "n_test": 100
+}

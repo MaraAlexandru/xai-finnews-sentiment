@@ -1,0 +1,9 @@
+{
+  "dataset": "fiqa_headlines",
+  "t_neg": -0.23999999999999955,
+  "t_pos": -0.11999999999999944,
+  "train_best_macro_f1": 0.4582835039406574,
+  "holdout_accuracy": 0.74,
+  "holdout_macro_f1": 0.5672268907563026,
+  "n_test": 100
+}
