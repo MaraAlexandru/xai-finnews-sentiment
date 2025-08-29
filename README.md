@@ -28,7 +28,7 @@ Installation
 
 Python 3.10+ recommended.
 
-pip install -U pandas numpy scikit-learn nltk shap matplotlib datasets transformers accelerate "torch==2.*" sentencepiece
+pip install -U pandas numpy scikit-learn nltk shap matplotlib datasets transformers accelerate "torch==2.*" sentencepiece yfinance statsmodels
 # (optional, if NLTK prompts for it)
 python -m nltk.downloader vader_lexicon
 

@@ -13,7 +13,6 @@ Two ablations:
 
 Why
 ===
-- Directly addresses reviewers' requests to replace VADER with a finance-specific lexicon.
 - Shows whether finance-aware priors help, and by how much, on your benchmark datasets.
 - Produces paper-ready artifacts: metrics JSON, confusion matrices, and per-example tables.
 
