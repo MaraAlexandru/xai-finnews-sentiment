@@ -1,0 +1,13 @@
+{
+  "industry": "Communication Services",
+  "ticker": "XLC",
+  "cagr": -0.08498550383287329,
+  "vol_ann": 0.04816063386879602,
+  "sharpe": -1.8196147575339237,
+  "max_dd": -0.027208534074216306,
+  "hit_rate": 0.05357142857142857,
+  "n_days": 56,
+  "z_thr": 1.0,
+  "cost_bps": 5,
+  "variant": "long_short"
+}

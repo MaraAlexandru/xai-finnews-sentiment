@@ -1,0 +1,13 @@
+{
+  "industry": "Healthcare",
+  "ticker": "XLV",
+  "cagr": 0.14263865577323354,
+  "vol_ann": 0.04151498076034327,
+  "sharpe": 3.233292103073138,
+  "max_dd": -0.0004999999999999449,
+  "hit_rate": 0.043478260869565216,
+  "n_days": 46,
+  "z_thr": 1.0,
+  "cost_bps": 5,
+  "variant": "long_only"
+}
