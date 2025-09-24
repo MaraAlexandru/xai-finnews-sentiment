@@ -257,7 +257,7 @@ Writes CSVs to `data/market/etf/` with standardized OHLCV columns.
 - **Code (this repo):** MIT License  
 - **Manual labels** (`data/annotation/annotated_articles.csv`) and docs: CC BY 4.0  
 - **Third‑party assets:** original licenses/terms apply  
-- **Loughran–McDonald Master Dictionary:** downloaded from Notre Dame SRAF — check their terms before redistribution  
+- **Loughran–McDonald Master Dictionary:** downloaded from Notre Dame SRAF — check their terms before redistribution  https://sraf.nd.edu/loughranmcdonald-master-dictionary/ 
 - **Marketaux content:** subject to Marketaux API Terms  
 - **ProsusAI/FinBERT, FPB, FiQA, VADER, XLM‑R:** governed by original licenses
 
