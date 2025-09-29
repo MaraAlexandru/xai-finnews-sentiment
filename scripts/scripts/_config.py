@@ -55,7 +55,7 @@ TARGET_LANGS = ["en", "es", "de", "fr", "it", "pt", "nl", "sv", "fi", "no", "da"
 NON_EN_MIN_SHARE = 0.20        # at least 20% non-English in annotation batches
 
 # Annotation batches
-ANNOTATION_TARGET_TOTAL = 600  # Reviewer 1/2: aim 500–1000; start with 600
+ANNOTATION_TARGET_TOTAL = 1500  
 ANNOTATION_BATCH_SIZE = 200    # Writes batch_01.csv, batch_02.csv, ...
 TEXT_COLUMNS_FOR_ANNOT = ["title", "description"]
 

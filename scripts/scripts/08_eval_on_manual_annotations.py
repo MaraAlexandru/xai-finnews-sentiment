@@ -34,8 +34,10 @@ import joblib
 
 from _config import (
     ANNOTATED_GOLD_CSV, MARKETAUX_ARTICLES_CSV, OUTPUTS_DIR, MODELS_DIR,
-    FPB_CSV, FIQA_HEADLINES_CSV, LEXICON_DIR
+    FPB_CSV, FIQA_HEADLINES_CSV, LEXICON_DIR,
+    VADER_POS_THR, VADER_NEG_THR,  
 )
+
 
 OUT_DIR = OUTPUTS_DIR / "gold_eval"
 CONF_DIR = OUT_DIR / "confmats"
@@ -172,21 +174,43 @@ def _pred_lm(texts):
     return out
 
 def _pred_vader(texts):
+    """
+    Robust VADER: try vaderSentiment (no external data), then fall back to NLTK.
+    Uses thresholds from _config.py (VADER_POS_THR / VADER_NEG_THR).
+    """
+    sia = None
+    # 1) Preferred: vaderSentiment (pip install vaderSentiment)
     try:
-        from nltk.sentiment import SentimentIntensityAnalyzer
-        import nltk
-        try: nltk.data.find("sentiment/vader_lexicon.zip")
-        except LookupError: nltk.download("vader_lexicon")
-        sia = SentimentIntensityAnalyzer()
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as VS_SIA
+        sia = VS_SIA()
+        backend = "vaderSentiment"
     except Exception:
-        return None
+        # 2) Fallback: NLTK (downloads resource if needed)
+        try:
+            from nltk.sentiment import SentimentIntensityAnalyzer as NLTK_SIA
+            import nltk
+            try:
+                nltk.data.find("sentiment/vader_lexicon.zip")
+            except LookupError:
+                nltk.download("vader_lexicon")
+            sia = NLTK_SIA()
+            backend = "nltk"
+        except Exception as e:
+            print(f"[WARN] VADER unavailable ({e}). Install with: pip install vaderSentiment")
+            return None
+
     y = []
     for t in texts:
-        c = sia.polarity_scores(t or "")["compound"]
-        if c >= 0.05: y.append(2)
-        elif c <= -0.05: y.append(0)
-        else: y.append(1)
+        c = sia.polarity_scores(t or "").get("compound", 0.0)
+        if c >= VADER_POS_THR:
+            y.append(2)
+        elif c <= VADER_NEG_THR:
+            y.append(0)
+        else:
+            y.append(1)
+    print(f"[OK] VADER predictions using backend: {backend}")
     return y
+
 
 def _get_or_train_lr(model_name: str, train_path: Path):
     mpath = MODELS_DIR / f"lr_tfidf_{model_name}.joblib"

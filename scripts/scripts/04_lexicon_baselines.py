@@ -48,16 +48,25 @@ def _lm_label_from_score(score: float, pos_thr: float = 1.0, neg_thr: float = -1
     return 1
 
 def _maybe_vader_score(text: str):
+    """Return compound score or None if VADER not available."""
+    # Try vaderSentiment first (no external data)
     try:
-        from nltk.sentiment import SentimentIntensityAnalyzer
+        from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as VS_SIA
+        s = VS_SIA()
+        return s.polarity_scores(text or "").get("compound", 0.0)
+    except Exception:
+        pass
+    # Fall back to NLTK
+    try:
+        from nltk.sentiment import SentimentIntensityAnalyzer as NLTK_SIA
         import nltk
         try: nltk.data.find("sentiment/vader_lexicon.zip")
         except LookupError: nltk.download("vader_lexicon")
-        s = SentimentIntensityAnalyzer()
-        v = s.polarity_scores(text or "")
-        return v["compound"]
+        s = NLTK_SIA()
+        return s.polarity_scores(text or "").get("compound", 0.0)
     except Exception:
         return None
+
 
 def _vader_label(compound: float):
     if compound is None: return None
