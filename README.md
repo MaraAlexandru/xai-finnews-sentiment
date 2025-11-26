@@ -76,7 +76,7 @@ README.md
 
 ## Installation
 
-Python **3.10+** recommended.
+Python **3.13+** recommended.
 
 bash
 pip install -U   pandas numpy scikit-learn nltk shap matplotlib   datasets transformers accelerate "torch==2.*" sentencepiece   yfinance statsmodels joblib   langdetect langid   interpret
